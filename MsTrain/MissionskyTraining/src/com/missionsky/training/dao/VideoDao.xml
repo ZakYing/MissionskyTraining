@@ -5,5 +5,13 @@
 <insert id="addVideo" parameterType="Video">
     insert into Video (videoTypeId,videoFileName,publishDate,publishUser,videoURL,videoImg) values(#{videoTypeId},#{VideoFileName},#{publishDate},#{publishUser},#{VideoURL},#{VideoImg})
 </insert>
+
+<select id="getRowcount" parameterType="int" resultType="int">
+    select count(*) rowCount from video where videoTypeId=#{videoTypeId}
+</select>
+
+<select id="getVideosByPage" parameterType="PageData" resultType="Video">
+   select * from video where videoTypeId=#{videoTypeId} order by publishDate desc limit #{start_index},#{end_index}
+</select>
 	
 </mapper>

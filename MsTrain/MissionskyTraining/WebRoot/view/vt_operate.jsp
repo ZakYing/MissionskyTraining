@@ -15,6 +15,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	
+	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+	<script type="text/javaScript">
+      function getAllType()
+      {
+          $.ajax({
+            url:"getAllVT.do",
+            type:"post",
+            dataType:"json",
+            data:{flag:"query"},
+            success:function(alltypeList){
+                $("#alltypeList").empty();
+                var str="<tr><td>id</td>><td>名称</td></tr>"
+                $("#alltypeList").append(str);
+                 $.each(alltypeList,function(key,obj){
+                    var str="<tr><td>"+obj.videoTypeId+"</td><td>"+obj.videoTypeName+"</td></tr>";
+                    $("#alltypeList").append(str);
+                 });
+            }
+         });
+      }
+	</script>
+	
   </head>
   
   <body>
@@ -58,5 +80,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </tr>
     </table>         
     </form>
+    <hr>
+    <a href="javascript:getAllType();">获取所有视频类型</a>
+    <table id="alltypeList">
+    </table>
+     <hr>
+           视频分页查询:
+      <a href="getVideosByPage.do?videoTypeId=1&pageIndex=1">AA业务培训第1页</a>
   </body>
+  
 </html>
