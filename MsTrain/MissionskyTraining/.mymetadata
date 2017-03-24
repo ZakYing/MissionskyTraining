@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="MissionskyTraining"
+  id="myeclipse.1490189264727"
+  context-root="/MissionskyTraining"
+  j2ee-spec="5.0"
+  archive="MissionskyTraining.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

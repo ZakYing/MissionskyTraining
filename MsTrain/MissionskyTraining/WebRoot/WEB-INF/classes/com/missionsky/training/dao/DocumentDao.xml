@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.missionsky.training.dao.DocumentDao"> 
+<cache></cache>
+<insert id="addDoc" parameterType="Document">
+    insert into Document (docName,docSize,uploadDate,uploadUser) values(#{docName},#{docSize},#{uploadDate},#{uploadUser})
+</insert>
+
+<select id="getRowcount"  resultType="int">
+    select count(*) rowCount from Document
+</select>
+
+<select id="getDocsByPage" parameterType="PageData" resultMap="GetDocumentInfo">
+   select * from Document d,UserInfo u where d.uploadUser=u.userId order by uploadDate desc limit #{start_index},#{end_index}
+</select>
+<resultMap type="DocumentInfo" id="GetDocumentInfo">
+	<id property="docId" column="docId"/>
+	<result property="docName" column="docName"/>
+	<result property="docSize" column="docSize"/>
+	<result property="uploadDate" column="uploadDate"/>
+	
+	<association property="user" column="uploadUser" javaType="User">
+		<id property="userId" column="userId"/>
+		<result property="userName" column="userName"/>
+		<result property="password" column="password"/>
+		<result property="admin_flag" column="admin_flag"/>
+	</association>
+	</resultMap>
+	
+</mapper>

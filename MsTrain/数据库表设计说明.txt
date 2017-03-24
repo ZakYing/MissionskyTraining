@@ -1,0 +1,52 @@
+数据库：mysql
+数据库名:missionsky_training
+用户名：root
+密码：  19931027
+
+表设计:
+
+用户表User
+
+create table UserInfo(
+  userId int primary key not null auto_increment,   //用户Id，主键
+  userName varchar(20) not null,                    //用户名
+  password varchar(20) not null,                    //密码
+  admin_flag int default '0'                        //用户级别,默认0普通用户，1管理员
+   );
+
+
+视频分类表VideoType
+
+create table VideoType(
+  videoTypeId int primary key not null auto_increment,  //视频类型Id，主键
+  videoTypeName varchar(20));                           //视频类型名称
+
+视频表Video
+
+create table Video(
+  videoId int primary key not null auto_increment,     //视频Id，主键
+  videoTypeId int not null,                            //视频类型Id，外键 
+  VideoFileName varchar(30) not null,                  //视频文件名
+  publishDate datetime not null,                       //发布日期
+  publishUser varchar(30) not null,                    //发布人
+  VideoURL varchar(100) not null,                      //视频链接地址   
+  videoImg varchar(100) not null,                      //视频链接封面       
+  foreign key(videoTypeId) references VideoType(videoTypeId));
+
+
+文件表Document
+
+create table Document(
+  docId int primary key not null auto_increment,      //文档Id，主键
+  docName varchar(30) not null,                      //文档文件名
+  docSize varchar(20) not null,                       //文档大小
+  uploadDate datetime not null,                       //上传日期
+  uploadUser int not null,                            //上传用户，外键
+  foreign key(uploadUser) references UserInfo(userId));
+  
+  
+  
+  
+  
+  
+  
