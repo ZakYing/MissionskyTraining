@@ -5,5 +5,9 @@
 <insert id="addVT" parameterType="VideoType">
     insert into VideoType (VideoTypeName) values(#{videoTypeName})
 </insert>
+
+<select id="getAllVT" resultType="VideoType">
+    select * from videoType
+</select>
 	
 </mapper>

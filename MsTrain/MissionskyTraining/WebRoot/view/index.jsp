@@ -16,12 +16,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
   </head>
   
-  <frameset border=0 framespacing=0 rows="14%,*"> 
-  <frame   frameborder=0 src="view_index/top.jsp" scrolling=no  noresize> 
-  <frameset  border=0 framespacing=0 cols="13%,*"> 
+  <frameset border=0 framespacing=0 rows="15%,*"> 
+   <frame   frameborder=0 src="view_index/top.jsp" scrolling=no  noresize> 
+  
+   <frame  frameborder=0  src="view_index/menu.jsp"  noresize> 
+  
+  <!-- <frameset  border=0 framespacing=0 cols="13%,*"> 
   <frame  frameborder=0  src="view_index/menu.jsp"  noresize> 
   <frame  frameborder=0  name="right" src="view_index/content.jsp"  noresize> 
-  </frameset>
+  </frameset> -->
   </frameset>
  
 </html>

@@ -18,7 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body bgcolor="yellow">
-    <center><h2>凌云创新信息科技培训网站</h2></center>
+    <center><h2>凌云新创信息科技培训网站</h2></center>
     <a href="logout.do" target="_parent">退出</a>
   </body>
 </html>
