@@ -7,9 +7,9 @@ body{
 
 	.container{
 		font-family: 微软雅黑;
-		background: #fff;
-		padding: 30px;
-		margin:50px auto;
+		background: #EEEEEE;
+		padding: 0px;
+		margin:0px auto;
         overflow: hidden;
 	}
 
@@ -18,6 +18,7 @@ body{
 		margin-left: 130px;
 		float: left;
 		border-right: 1px solid #aaa;
+	    height: 100%;
 	}
 /*position 菜单背景图标*/
 	.positionIicon{
@@ -133,6 +134,9 @@ body{
 
 	}
 /*第二个菜单下的文档内容*/
+	.container .content .menu2{
+		width:1050px;
+	}	
 	.container .content .menu2 .tab {
 		display: none;
 	}

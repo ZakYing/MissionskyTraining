@@ -14,6 +14,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
 	
 	<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
 	<script type="text/javaScript">
@@ -48,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    <hr>
     <h3>添加视频</h3>
     <form action="addVideo.do" method="post" enctype="multipart/form-data">
-    <table>
+    <table class="table table-striped">
     <tr>
     <td>视频类型</td>
     <td> 
@@ -87,6 +89,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      <hr>
            视频分页查询:
       <a href="getVideosByPage.do?videoTypeId=1&pageIndex=1">AA业务培训第1页</a>
+  
+  
+  <script>$(function(){
+		$("input[type=file]").change(function(){$(this).parents(".uploader").find(".filename").val($(this).val());});
+		$("input[type=file]").each(function(){
+			if($(this).val()==""){$(this).parents(".uploader").find(".filename").val("No file selected...");}
+			});
+		});
+	</script>
+  
   </body>
+  
   
 </html>

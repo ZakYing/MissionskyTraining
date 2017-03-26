@@ -40,14 +40,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </thead>
     </table>
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<!--<script src="assets/bootstrap2.3/js/bootstrap.min.js"></script>-->
-<script src="../js/tableExport.js"></script>
-<script src="../js/jquery.base64.js"></script>
-<script src="../js/bootstrap-table.js"></script>
-<script src="../js/bootstrap-table-export.js"></script>
-<script>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+	<script src="../js/tableExport.js"></script>
+	<script src="../js/jquery.base64.js"></script>
+	<script src="../js/bootstrap-table.js"></script>
+	<script src="../js/bootstrap-table-export.js"></script>
+	<script>
     $(function () {
         $('#build').click(build);//.trigger('click');
         $('#cells, #rows').keyup(function (e) {
