@@ -43,7 +43,7 @@
 			<input type="hidden" name="pageIndex" value=<%=pageIndex%>> <input
 				type="text" class="filename" readonly /> <input type="submit"
 				class="button" value="上传文档" style="display: inline;" /> <input
-				type="file" id="doc" name="doc" />
+				type="file" id="doc" name="doc"/>
 
 		</form>
 	</div>
@@ -51,7 +51,7 @@
 	<form id="formlist" name="formlist" action="doc_op.do" method="post"
 		class="table-responsive">
 		<table class="table table-hover">
-			<tr>
+			<tr style="font-weight: bold;font-size:14px">
 				<td>文件名</td>
 				<td>文件大小</td>
 				<td>上传日期</td>
