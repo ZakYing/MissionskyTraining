@@ -38,12 +38,11 @@
 <body>
 	<h3>文档管理</h3>
 	<div class="uploader white">
-		<form action="doc_upload.do" method="post"
-			enctype="multipart/form-data">
-			<input type="hidden" name="pageIndex" value=<%=pageIndex%>> <input
-				type="text" class="filename" readonly /> <input type="submit"
-				class="button" value="上传文档" style="display: inline;" /> <input
-				type="file" id="doc" name="doc"/>
+		<form action="doc_upload.do" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="pageIndex" value=<%=pageIndex%>>
+			 <input type="text" class="filename" readonly /> 
+			 <input type="submit" class="button" value="上传文档"/> 
+			 <input type="file" id="doc" name="doc"/>
 
 		</form>
 	</div>

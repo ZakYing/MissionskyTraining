@@ -61,13 +61,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<h3>
 				<i class="q-menu-doit positionIicon"></i>材料中心
 			</h3>
-			<ul class="ulmenu2">
-				<li><a href="../view/doc.jsp" class="selected" target="iframe2">AA</a>
-
-				</li>
-				<li><a href="../doc_op.do?pageIndex=1" target="iframe3">ACA</a></li>
+			<ul class="ulmenu3">
 				<li><a href="../view/vt_operate.jsp" target="iframe4">QA</a></li>
-				<li><a href="#">期初问题</a></li>
+				<li><a href="#" class="selected">AA</a></li>
+				<li><a href="../doc_op.do?pageIndex=1" target="iframe3">ACA</a></li>
+				<li><a href="#">视频中心</a></li>
+
+			</ul>
+
+			<h3>
+				<i class="q-menu-doit positionIicon"></i>文章中心
+			</h3>
+			<ul class="ulmenu4">
+
+				<li><a href="../view/addFile.jsp" target="iframeFile">发布文章</a></li>
+
 			</ul>
 
 		</div>
@@ -212,17 +220,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 
 			<div class="menu2 menu_tab">
+
 				<div id="tab-1" class="tab">
+					<iframe name="iframe1" title="" width="1000px" height="800px"
+						frameborder="0"> </iframe>
+				</div>
+
+				<div id="tab-2" class="tab">
 					<iframe name="iframe2" title="" width="1000px" height="800px"
 						frameborder="0"> </iframe>
 				</div>
 
-				<div id="ta-2" class="tab">
+				<div id="ta-3" class="tab">
 					<iframe name="iframe3" title="" width="1000px" height="800px"
 						frameborder="0"> </iframe>
 				</div>
 
-				<div id="tab-3" class="tab">
+				<div id="tab-4" class="tab">
 					<iframe name="iframe4" title="" width="1000px" height="800px"
 						frameborder="0"> </iframe>
 				</div>
@@ -246,15 +260,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<img src="images/4.jpg" />
 					</tr>
 				</div>
-<!-- 
-				<div id="tab-5" class="tab">table5</div>
-				<div id="tab-6" class="tab">table6</div>
-				<div id="tab-7" class="tab">table7</div>
-				<div id="tab-8" class="tab">table8</div>
-				<div id="tab-9" class="tab">table9</div>
-				<div id="tab-10" class="tab">table10</div>
-				<div id="tab-11" class="tab">table11</div>
-				<div id="tab-12" class="tab">table12</div> -->
 			</div>
 
 			<div class="menu3 menu_tab">
@@ -264,45 +269,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 					<p class="tt">2. 。。。安全吗？</p>
 					<p>在安全保障方面，我们参照并实施了多项国际及国家在信息安全领域的标准，成立了公司级安全小组，制定了详细的规章制度与考核标准，由安全监理负责监察规章制度的执行，确保客户数据的收集、储存及使用均遵守内部监控以及适用的法律及法规规定；用户数据安全方面我们采用安全性最好的独立部署模式，对每一家企业分配私有的专用服务器资源独立使用，数据单独存放，核心数据每天进行本地，本地异机与异地异机三重备份机制，解决因为极端事件给数据带来的安全隐患；在数据传输安全方面，所有用户关键及核心数据，我们全部使用SSL加密转输，杜绝了用户数据在传输过程中可能出现的窃听、篡改、伪造等行为。</p>
-
-
-					<p class="tt">3. 有。。。的流程操作视频吗？</p>
-					<p>。。。操作视频：http://kuaiji.youku.com/hall/?ykvid=XODYwMTkwOTQw</p>
-					<p>帮助文档：http://www.uu.com.cn/help/index.html</p>
-
-					<p class="tt">1. 。。。如何收费？</p>
-					<p>。。。的数据是云端多重备份存储，是自动保存的。</p>
-					<p>使用者年底也可以把总账、明细账下载到本地归档，操作步骤：点击“账簿管理”，选择某一公司账套，点击“账簿归档”，即能将所选年度的总账、明细账、数量金额明细账下载到本地用于归档。</p>
-
-					<p class="tt">1. 。。。如何收费？</p>
-					<p>。。。的个人版用户，100套账免费记，只需注册即可直接使用。。。。的代账公司版，多人操作且有服务运营管理系统，总账套数300套收费980元/年，总账套数1000套收费1980元/年。</p>
-
-					<p class="tt">1. 。。。如何收费？</p>
-					<p>。。。的个人版用户，100套账免费记，只需注册即可直接使用。。。。的代账公司版，多人操作且有服务运营管理系统，总账套数300套收费980元/年，总账套数1000套收费1980元/年。</p>
-
-					<p class="tt">1. 。。。如何收费？</p>
-					<p>。。。</p>
-
-					<p class="tt">1. 。。。如何收费？</p>
-					<p>。。。</p>
 				</div>
 				<div id="tab-3-2" class="tab">table2</div>
-				<div id="tab-3-3" class="tab">table3</div>
-				<div id="tab-3-4" class="tab">
-					<p class="tt">1. 。。。</p>
-					<p>。。。的个人版用户，100套账免费记，只需注册即可直接使用。。。。的代账公司版，多人操作且有服务运营管理系统，总账套数300套收费980元/年，总账套数1000套收费1980元/年。</p>
-
-					<p class="tt">2. 。。。安全吗？</p>
-					<p>在安全保障方面，我们参照并实施了多项国际及国家在信息安全领域的标准，成立了公司级安全小组，制定了详细的规章制度与考核标准，由安全监理负责监察规章制度的执行，确保客户数据的收集、储存及使用均遵守内部监控以及适用的法律及法规规定；用户数据安全方面我们采用安全性最好的独立部署模式，对每一家企业分配私有的专用服务器资源独立使用，数据单独存放，核心数据每天进行本地，本地异机与异地异机三重备份机制，解决因为极端事件给数据带来的安全隐患；在数据传输安全方面，所有用户关键及核心数据，我们全部使用SSL加密转输，杜绝了用户数据在传输过程中可能出现的窃听、篡改、伪造等行为。</p>
+				<div id="tab-3-3" class="tab">table2</div>
+				<div id="tab-3-4" class="tab">table2</div>
+			</div>
+			
+			<div class="menu4 menu_tab">
+				<div id="tab-4-1" class="tab">
+					<iframe name="iframeFile" title="" width="1000px" height="800px"
+						frameborder="0"> </iframe>
 				</div>
-				<div id="tab-3-5" class="tab">table5</div>
-				<div id="tab-3-6" class="tab">table6</div>
-				<div id="tab-3-7" class="tab">table7</div>
-				<div id="tab-3-8" class="tab">table8</div>
-				<div id="tab-3-9" class="tab">table9</div>
-				<div id="tab-3-10" class="tab">table10</div>
-				<div id="tab-3-11" class="tab">table11</div>
-				<div id="tab-3-12" class="tab">table12</div>
 			</div>
 
 		</div>
@@ -310,5 +287,4 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </body>
 <script type="text/javascript" src="../js/pc.js"></script>
-</html>
 </html>
