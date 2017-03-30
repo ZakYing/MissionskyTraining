@@ -1,0 +1,90 @@
+数据库:mysql
+数据库名:missionsky_training
+
+表结构:
+
+1:用户表
+create table UserInfo(
+  userId int primary key not null auto_increment,   //用户Id，主键
+  userName varchar(20) not null,                    //用户名
+  password varchar(20) not null,                    //密码
+  admin_flag int default '0'                        //用户级别,默认0普通用户，1管理员
+   );
+
+
+2:菜单表
+create table Menue(
+  menueId int primary key not null auto_increment,            //菜单Id,主键
+  parentId int not null,                                      //父级Id
+  menueName varchar(20) not null,                             //菜单名称
+  menueImg  varchar(80),                                      //菜单图标,允许为空,有默认图片
+  url varchar(50) not null);                                  //菜单响应的路径
+
+  
+3:用户菜单表
+create table UserMenue(
+  UserMenueId int primary key not null auto_increment,          //用户菜单Id,主键
+  userId int not null,                                          //用户Id,外键
+  menueId int not null,                                         //菜单Id,外键
+  foreign key(userId) references UserInfo(userId),
+  foreign key(menueId) references Menue(menueId));
+
+
+
+3:课程类型表
+create table CourseType(
+   courseTypeId int primary key not null auto_increment,   //课程类型Id，主键
+   courseTypeName varchar(20) not null);                   //课程类型名称
+
+
+4:课程表
+create table Course(
+  courseId int primary key not null auto_increment,       //课程Id,主键
+  courseIntro varchar(50) not null,                       //课程简介
+  trainingUser varchar(20) not null,                      //培训人
+  trainingUDegree varchar(20) not null,                   //培训人身份
+  language varchar(20) not null,                          //语言
+  courseImg varchar(80),                                  //课程链接封面,允许为空,有默认图片
+  courseTypeId int not null,                              //课程类型,外键
+  foreign key(courseTypeId) references CourseType(courseTypeId));
+
+
+5:文章表
+create table Article(
+  articleId int primary key not null auto_increment,     //文章Id,主键
+  subject varchar(30) not null,                          //文章标题
+  contentFileName varchar(35) not null,                  //文章内容文件名
+  publishDate datetime not null,                         //发布日期
+  publishUser int not null,                              //用户Id(发布用户)，外键
+  courseId int,                                           //课程Id,允许为空，外键
+  foreign key(publishUser) references UserInfo(userId)
+  foreign key(courseId) references Course(courseId));           
+
+
+6:视频表
+
+create table Video(
+  videoId int primary key not null auto_increment,     //视频Id，主键
+  VideoFileName varchar(30) not null,                  //视频文件名
+  VideoURL varchar(80) not null,                      //视频链接路径  
+  videoImg varchar(80),                               //视频链接封面,允许为空,有默认图片
+  courseId int,                                       //课程Id,允许为空，外键
+  foreign key(courseId) references Course(courseId));
+
+
+7:附件表
+
+create table Attachment(
+  attachmentId int primary key not null auto_increment,      //附件Id，主键
+  attachmentName varchar(30) not null,                       //附件名
+  attachmentSize varchar(20) not null,                       //附件大小
+  uploadDate datetime not null,                              //上传日期
+  uploadUser int,                                            //用户Id(上传用户)，允许为空，外键
+  articleId int,                                             //文章Id,允许为空，外键
+  foreign key(articleId) references Article(Article),                           
+  foreign key(uploadUser) references UserInfo(userId));
+
+
+
+
+
