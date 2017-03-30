@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>课程列表</title>
+
+		<link rel="stylesheet" href="layui/css/layui.css" media="all" />
+
+		<style type="text/css">
+			.layui-tab-item img {
+				width:
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="layui-tab" lay-filter="demo">
+
+			<ul class="layui-tab-title" style="width: 90%;">
+				<li class="layui-this">Record</li>
+				<li>Inspection</li>
+				<li>ASI&ASIT</li>
+				<li>
+					<a href="">ELSE</a>
+				</li>
+				<li style="float: right;">
+					<button class="layui-btn">添加视频</button>
+				</li>
+			</ul>
+			<div class="layui-tab-content">
+				<div class="layui-tab-item layui-show">
+					<a href="javascript:;" class="vt_4"><img lay-src="imgs/f4.jpg"> </a>
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img src="imgs/f4.jpg" alt="該图不会懒加载">
+				</div>
+				<div class="layui-tab-item">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+				</div>
+				<div class="layui-tab-item">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+					<img lay-src="imgs/f4.jpg">
+				</div>
+			</div>
+		</div>
+
+		<script src="layui/layui.js"></script>
+		<script src="js/jquery-1.8.3.js"></script>
+			<script src="js/demo.js"></script>
+		<script>
+			layui.use('element', function() {
+				var element = layui.element();
+				//一些事件监听
+				element.on('tab(demo)', function(data) {
+					console.log(data);
+				});
+			});
+
+			layui.use('flow', function() {
+				var flow = layui.flow;
+				//当你执行这样一个方法时，即对页面中的全部带有lay-src的img元素开启了懒加载（当然你也可以指定相关img）
+				flow.lazyimg();
+			});
+		</script>
+
+		<script>
+			$('.vt_4').on('click',function() {
+			      layer.open({
+			        type: 2,
+			        content: 'http://layim.layui.com',
+			        area: ['320px', '195px'],
+			        maxmin: true
+			      });
+			      layer.full(index);
+      break;
+			});
+		</script>
+
+	</body>
+
+</html>
