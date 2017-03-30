@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Document</title>
+
+		<link rel="stylesheet" href="layui/css/layui.css" media="all" />
+
+	</head>
+
+	<body style="margin: 20px;">
+
+		<div class="layui-form">
+
+			<div class="layui-form-item">
+				<form class="" action="" method="post" style="float: left; display: inline;">
+					<!--<label class="layui-form-label">文件上传</label>-->
+					<input name="file1" lay-type="file" class="layui-upload-file" type="file">
+				</form>
+
+				<form class="" action="" method="post" style="float: right;">
+					<!--<label class="layui-form-label">搜索内容</label>-->
+					<div class="layui-inline">
+						<input name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" type="text">
+					</div>
+					<input type="button" class="layui-btn" value="搜索"style="margin-top:-6px" />
+
+				</form>
+			</div>
+
+			<table class="layui-table">
+				<colgroup>
+					<col width="150">
+					<col width="200">
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+						<th>文件名</th>
+						<th>文件大小</th>
+						<th>上传日期</th>
+						<th>上传者</th>
+						<th>下载</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<!--<div style="text-align: center;">
+				<button class="layui-btn-mini">上一页</button> 
+				
+					共<input type="text" class="layui-input-inline" style="width: 20px;"/>页
+				
+				<button class="layui-btn-mini">上一页</button>
+			</div>-->
+			
+			<div id="demo1" align="center"></div>
+			
+		</div>
+
+		<script src="layui/lay/dest/layui.all.js"></script>
+
+		<script src="layui/layui.js"></script>
+
+		<!--table style-->
+		<script>
+			layui.use('form', function() {
+				var $ = layui.jquery,
+					form = layui.form();
+				//全选
+				form.on('checkbox(allChoose)', function(data) {
+					var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+					child.each(function(index, item) {
+						item.checked = data.elem.checked;
+					});
+					form.render('checkbox');
+				});
+			});
+			
+			layui.use(['laypage', 'layer'], function(){
+				  var laypage = layui.laypage
+				  ,layer = layui.layer;
+				  
+				  laypage({
+				    cont: 'demo1'
+				    ,pages: 100 //总页数
+				    ,groups: 5 //连续显示分页数
+				  });
+			 var nums = 5; //每页出现的数据量
+  
+			  //模拟渲染
+			  var render = function(curr){
+			    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
+			    var str = '', last = curr*nums - 1;
+			    last = last >= data.length ? (data.length-1) : last;
+			    for(var i = (curr*nums - nums); i <= last; i++){
+			      str += '<li>'+ data[i] +'</li>';
+			    }
+			    return str;
+			  };
+			  
+			  //调用分页
+			  laypage({
+			    cont: 'demo8'
+			    ,pages: Math.ceil(data.length/nums) //得到总页数
+			    ,jump: function(obj){
+			      document.getElementById('biuuu_city_list').innerHTML = render(obj.curr);
+			    }
+			  });
+			  
+			});
+		</script>
+
+		<!--file upload-->
+		<script>
+			layui.use('upload', function() {
+				layui.upload({
+					url: '' //上传接口
+						,
+					success: function(res) { //上传成功后的回调
+						console.log(res)
+					}
+				});
+
+				layui.upload({
+					url: '/test/upload.json',
+					elem: '#test' //指定原始元素，默认直接查找class="layui-upload-file"
+						,
+					method: 'get' //上传接口的http类型
+						,
+					success: function(res) {
+						LAY_demo_upload.src = res.url;
+					}
+				});
+			});
+		</script>
+		
+	</body>
+
+</html>

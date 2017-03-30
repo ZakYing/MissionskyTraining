@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Document</title>
+
+		<link rel="stylesheet" href="layui/css/layui.css" media="all" />
+		<style >
+			a{color: red;}		
+			
+		</style>
+	</head>
+
+	<body style="margin: 20px;">
+
+		<div class="layui-form">
+
+			<table class="layui-table">
+				<colgroup>
+					<col width="150">
+					<col width="200">
+					<col>
+				</colgroup>
+				<thead>
+					<tr>
+						<th><input type="checkbox" name="" lay-skin="primary" lay-filter="allChoose"></th>
+						<th>文件名</th>
+						<th>文件大小</th>
+						<th>上传日期</th>
+						<th>上传者</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+					<tr>
+						<td><input type="checkbox" name="" lay-skin="primary"></td>
+						<td>Java编程宝典</td>
+						<td>1124kb</td>
+						<td>2016-11-29</td>
+						<td>Zak</td>
+						<td>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+							<a href="#">下载</a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		<script src="layui/lay/dest/layui.all.js"></script>
+
+		<script src="layui/layui.js"></script>
+
+		<!--table style-->
+		<script>
+			layui.use('form', function() {
+				var $ = layui.jquery,
+					form = layui.form();
+				//全选
+				form.on('checkbox(allChoose)', function(data) {
+					var child = $(data.elem).parents('table').find('tbody input[type="checkbox"]');
+					child.each(function(index, item) {
+						item.checked = data.elem.checked;
+					});
+					form.render('checkbox');
+				});
+			});
+		</script>
+
+		<!--file upload-->
+		<script>
+			layui.use('upload', function() {
+				layui.upload({
+					url: '' //上传接口
+						,
+					success: function(res) { //上传成功后的回调
+						console.log(res)
+					}
+				});
+
+				layui.upload({
+					url: '/test/upload.json',
+					elem: '#test' //指定原始元素，默认直接查找class="layui-upload-file"
+						,
+					method: 'get' //上传接口的http类型
+						,
+					success: function(res) {
+						LAY_demo_upload.src = res.url;
+					}
+				});
+			});
+		</script>
+
+	</body>
+
+</html>
