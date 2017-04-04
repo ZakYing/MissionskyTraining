@@ -16,7 +16,7 @@
 			<div class="layui-form-item">
 				<form class="" action="" method="post" style="float: left; display: inline;">
 					<!--<label class="layui-form-label">文件上传</label>-->
-					<input name="file1" lay-type="file" class="layui-upload-file" type="file">
+					<button class="layui-btn">文件上传</button>
 				</form>
 
 				<form class="" action="" method="post" style="float: right;">
@@ -136,7 +136,20 @@
 				<button class="layui-btn-mini">上一页</button>
 			</div>-->
 			
-			<div id="demo1" align="center"></div>
+			<div class="layui-form" style="text-align: center;">
+				<button class="layui-btn layui-btn-small">
+					<i class="layui-icon"></i>
+				</button>
+				
+				<label class="lbl">共<strong style="letter-spacing: 0;">28</strong>条记录</label>
+				<label class="lbl">共<strong style="letter-spacing: 0;">3</strong>页</label>
+				<label class="lbl">转到第<strong style="letter-spacing: 0;"><a href="#"><input style="width: 20px;" value="3"/></a></strong>页</label>
+				
+				
+				<button class="layui-btn layui-btn-small">
+					<i class="layui-icon"></i>
+				</button>
+			</div>
 			
 		</div>
 
@@ -159,39 +172,6 @@
 				});
 			});
 			
-			layui.use(['laypage', 'layer'], function(){
-				  var laypage = layui.laypage
-				  ,layer = layui.layer;
-				  
-				  laypage({
-				    cont: 'demo1'
-				    ,pages: 100 //总页数
-				    ,groups: 5 //连续显示分页数
-				  });
-			 var nums = 5; //每页出现的数据量
-  
-			  //模拟渲染
-			  var render = function(curr){
-			    //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
-			    var str = '', last = curr*nums - 1;
-			    last = last >= data.length ? (data.length-1) : last;
-			    for(var i = (curr*nums - nums); i <= last; i++){
-			      str += '<li>'+ data[i] +'</li>';
-			    }
-			    return str;
-			  };
-			  
-			  //调用分页
-			  laypage({
-			    cont: 'demo8'
-			    ,pages: Math.ceil(data.length/nums) //得到总页数
-			    ,jump: function(obj){
-			      document.getElementById('biuuu_city_list').innerHTML = render(obj.curr);
-			    }
-			  });
-			  
-			});
-		</script>
 
 		<!--file upload-->
 		<script>

@@ -8,83 +8,99 @@
 		<link rel="stylesheet" href="layui/css/layui.css" media="all" />
 
 		<style type="text/css">
-			.layui-tab-item img {
-				width:
+			img {
+				margin: 3px 3px 0px 0px;
+				width: 200px;
+				height: 180px;
+			}
+			
+			.div1 {
+				width: 100%;
+			}
+			
+			.div2 {
+				text-align: center;
+				float: left;
+			}
+			
+			.lbl {
+				font-size: 16px;
+				letter-spacing: 0.3em;
+			}
+			
+			.btn {
+				margin-top: 30px;
+				margin-left: 62px;
 			}
 		</style>
 	</head>
 
 	<body>
+		<div class="div1">
 
-		<div class="layui-tab" lay-filter="demo">
+			<div class="layui-form-item">
+				<button class="layui-btn btn" onclick="fun()">添加课程</button>
+				<form class="" action="" method="post" style="    float: right; margin-right: 60px;margin-top: 30px;">
+					<div class="layui-inline">
+						<input name="username" lay-verify="required" placeholder="请输入" autocomplete="off" class="layui-input" type="text">
+					</div>
+					<input type="button" class="layui-btn"onclick="" value="搜索" />
+					</form>
+			</div>
 
-			<ul class="layui-tab-title" style="width: 90%;">
-				<li class="layui-this">Record</li>
-				<li>Inspection</li>
-				<li>ASI&ASIT</li>
-				<li>
-					<a href="">ELSE</a>
-				</li>
-				<li style="float: right;">
-					<button class="layui-btn">添加视频</button>
-				</li>
-			</ul>
-			<div class="layui-tab-content">
-				<div class="layui-tab-item layui-show">
-					<a href="javascript:;" class="vt_4"><img lay-src="imgs/f4.jpg"> </a>
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img src="imgs/f4.jpg" alt="該图不会懒加载">
-				</div>
-				<div class="layui-tab-item">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-				</div>
-				<div class="layui-tab-item">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-					<img lay-src="imgs/f4.jpg">
-				</div>
+			<div class="div2">
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
+				<a href="videoInfo.html"><img lay-src="imgs/f4.jpg"></a>
 			</div>
 		</div>
 
+		<div class="layui-form" style="text-align: center; padding-top: 20px;">
+			<button class="layui-btn layui-btn-small">
+				<i class="layui-icon"></i>
+			</button>
+
+			<label class="lbl">共<strong style="letter-spacing: 0;">28</strong>条记录</label>
+			<label class="lbl">共<strong style="letter-spacing: 0;">3</strong>页</label>
+			<label class="lbl">转到第<strong style="letter-spacing: 0;"><a href="#"><input style="width: 20px;" value="3"/></a></strong>页</label>
+
+			<button class="layui-btn layui-btn-small">
+				<i class="layui-icon"></i>
+			</button>
+		</div>
+
 		<script src="layui/layui.js"></script>
-		<script src="js/jquery-1.8.3.js"></script>
-			<script src="js/demo.js"></script>
+		<!--<script src="js/jquery-1.8.3.js"></script>-->
+		<script src="layui/lay/dest/layui.all.js"></script>
+
 		<script>
-			layui.use('element', function() {
-				var element = layui.element();
-				//一些事件监听
-				element.on('tab(demo)', function(data) {
-					console.log(data);
+			function fun() {
+				layui.use('layer', function() {
+					var layer = layui.layer;
+					layer.open({
+						type: 2,
+						title: '添加课程',
+						shadeClose: true,
+						shade: 0.8,
+						area: ['390px', '75%'],
+						content: ['../train2/addCourse.html', 'no'] //iframe的url
+					});
 				});
-			});
+			}
 
 			layui.use('flow', function() {
 				var flow = layui.flow;
 				//当你执行这样一个方法时，即对页面中的全部带有lay-src的img元素开启了懒加载（当然你也可以指定相关img）
 				flow.lazyimg();
-			});
-		</script>
-
-		<script>
-			$('.vt_4').on('click',function() {
-			      layer.open({
-			        type: 2,
-			        content: 'http://layim.layui.com',
-			        area: ['320px', '195px'],
-			        maxmin: true
-			      });
-			      layer.full(index);
-      break;
 			});
 		</script>
 
